@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"baseUrl": "./",
+		"paths": {
+			"@/config/*": ["./pages/api/config/*"],
+			"@/controllers/*": ["./pages/api/controllers/*"],
+			"@/functions/*": ["./pages/api/functions/*"],
+			"@/utils/*": ["./pages/api/utils/*"],
+
+			"@/api/*": ["./pages/api/*"],
+
+			"@/*": ["*"]
+		}
+	}
+}
