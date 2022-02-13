@@ -15,7 +15,7 @@ export default function handler(req, res) {
 		code: req.query.code,
 		client_id: process.env.SPOTIFY_CLIENT_ID,
 		client_secret: process.env.SPOTIFY_CLIENT_SECRET,
-		redirect_uri: 'http://localhost:3000/api/loginRedirect',
+		redirect_uri: process.env.LOGIN_REDIRECT_URL,
 	};
 
 

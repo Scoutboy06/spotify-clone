@@ -12,6 +12,6 @@ export default function handler(req, res) {
 		response_type: 'code',
 		client_id: process.env.SPOTIFY_CLIENT_ID,
 		scope: encodeURIComponent(scopes),
-		redirect_uri: 'http://localhost:3000/api/loginRedirect',
+		redirect_uri: process.env.LOGIN_REDIRECT_URL,
 	}));
 }
