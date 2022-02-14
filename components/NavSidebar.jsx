@@ -10,8 +10,8 @@ export default function PlaylistsSidebar() {
 	const { data, error } = useSWR('/api/user/playlists', fetcher);
 
 	return (
-		<aside className='bg-01dp h-full w-64 flex flex-col overflow-y-auto'>
-			<div className='px-3 pt-3 pb-4 flex items-center'>
+		<nav className='bg-01dp h-full w-64 flex flex-col overflow-y-auto'>
+			{/* <div className='px-3 pt-3 pb-4 flex items-center'>
 				<Image
 					src={user.images[0].url}
 					height={30}
@@ -21,7 +21,7 @@ export default function PlaylistsSidebar() {
 				/>
 
 				<p className='text-white ml-2'>{user.display_name}</p>
-			</div>
+			</div> */}
 
 			{data &&
 				data.items.map(playlist => (
@@ -31,6 +31,6 @@ export default function PlaylistsSidebar() {
 						</a>
 					</Link>
 				))}
-		</aside>
+		</nav>
 	);
 }

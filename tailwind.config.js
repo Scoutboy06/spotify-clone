@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'spotify-green': '#1FD761',
+        'spotify-green': '#1DB954',
         '00dp': '#121212',
         '01dp': '#1E1E1E',
         '02dp': '#232323',
@@ -20,6 +20,9 @@ module.exports = {
       },
       fontSize: {
         'xxs': '.65rem'
+      },
+      gridTemplateColumns: {
+        'root': '256px auto',
       }
     },
   },

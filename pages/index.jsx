@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import useUser from '@/hooks/useUser';
-import PlaylistsSidebar from '@/components/PlaylistsSidebar';
+
+import NavSidebar from '@/components/NavSidebar';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function Home() {
 	const router = useRouter();
@@ -15,8 +18,13 @@ export default function Home() {
 	}
 
 	return (
-		<div className='w-screen h-screen overflow-hidden'>
-			<PlaylistsSidebar />
+		<div className='w-screen h-screen overflow-hidden grid grid-cols-root'>
+			<NavSidebar />
+			<div className=''>
+				<Header />
+				<main className='text-white'>Main!</main>
+			</div>
+			<Footer />
 		</div>
 	);
 }

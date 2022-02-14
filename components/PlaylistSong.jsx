@@ -5,15 +5,14 @@ export default function PlaylistSong({ data: track, index }) {
 
 	return (
 		<div
-			className='w-full focus:bg-06dp hover:bg-02dp px-4 h-10 rounded-md grid gap-4 text-gray-300'
+			className='w-full focus:bg-06dp hover:bg-02dp px-4 h-10 rounded-md grid gap-4 text-gray-300 group'
 			style={{ gridTemplateColumns: '24px 6fr 4fr 3fr minmax(120px, 1fr)' }}
 		>
 			<div className='text-gray-400 flex items-center text-sm'>
-				{/* <button onClick={() => {}} className='mr-4'>
-					<Icon name='play_arrow' fill='#fff' size={18} />
-					<span className='m-icon text-white'>play_arrow</span>
-				</button> */}
-				{index + 1}
+				<button onClick={() => {}} className='hidden group-hover:block'>
+					<span className='m-icon text-white text-base'>play_arrow</span>
+				</button>
+				<span className='block group-hover:hidden'>{index + 1}</span>
 			</div>
 			<div className='flex flex-col justify-center'>
 				<p className='text-xs text-white whitespace-nowrap overflow-hidden overflow-ellipsis'>

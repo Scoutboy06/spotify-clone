@@ -8,8 +8,9 @@ html,
 body {
 	background: #121212;
 	min-height: 100vh;
+	font-family: sans-serif, 'Helvetica Neue', Helvetica, Arial;
 }
 
 .m-icon {
-	font-family: 'Material Icons', sans-serif;
+	font-family: 'Material Icons', sans-serif, 'Helvetica Neue', Helvetica, Arial;
 }
