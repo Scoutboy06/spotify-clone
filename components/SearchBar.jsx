@@ -6,7 +6,7 @@ export default function SearchBar() {
 	const [value, setValue] = useState('');
 
 	return (
-		<div className='h-8 w-96 pl-2 bg-04dp backdrop-blur-sm bg-opacity-70 rounded-full flex flex-row items-center'>
+		<div className='h-8 w-96 bg-06dp bg-opacity-60 pl-2 rounded-full flex flex-row items-center'>
 			<span className='m-icon text-gray-400 text-xl select-none mr-1'>
 				search
 			</span>

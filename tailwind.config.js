@@ -20,9 +20,6 @@ module.exports = {
       },
       fontSize: {
         'xxs': '.65rem'
-      },
-      gridTemplateColumns: {
-        'root': '256px auto',
       }
     },
   },
