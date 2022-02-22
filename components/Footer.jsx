@@ -1,28 +1,30 @@
-// import usePlayback from '@/hooks/usePlayback';
-import { useContext, useState } from 'react';
+/* eslint-disable @next/next/no-img-element */
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-	setPlayback,
 	togglePlayback,
 	toggleShuffleState,
 	cycleRepeatState,
-	setRepeatState,
-	// seek,
-} from '@/redux/slices/musicMetaSlice';
+} from '@/features/musicMeta/musicMetaSlice';
+import { togglePlay } from '@/features/playback/playbackSlice';
 
 import SongProgressBar from '@/components/SongProgressBar';
+import DeviceList from '@/components/DeviceList';
 
 export default function Footer() {
 	const {
 		isPlaying,
 		progress,
 		songDuration,
-		currentSong,
-		shuffleState,
-		repeatState,
+		currentTrack,
+		shuffle,
+		repeat,
 		volumePercent,
+		hasInited,
 	} = useSelector(state => state.musicMeta);
 	const dispatch = useDispatch();
+
+	const [showDeviceList, setDeviceListVisibility] = useState(false);
 
 	return (
 		<footer
@@ -30,12 +32,18 @@ export default function Footer() {
 			style={{ gridArea: 'now-playing-bar' }}
 		>
 			{/* Left */}
-			<div className='flex flex-row h-full w-[30%]'>
-				<div className='h-20 w-20 bg-24dp'></div>
+			<div className='flex flex-row h-full w-[30%] items-center'>
+				<div className='h-14 w-14 bg-24dp ml-2 mt-1'>
+					{currentTrack?.album && (
+						<img src={currentTrack.album.images[1].url} alt='Album cover' />
+					)}
+				</div>
 				<div className='flex flex-col justify-center ml-4'>
-					<p className='text-white'>{currentSong.name}</p>
+					<p className='text-white'>{currentTrack?.name}</p>
 					<span className='text-gray-500 text-xs'>
-						{currentSong.artists.join(', ')}
+						{currentTrack?.artists
+							? currentTrack.artists.map(artist => artist.name).join(', ')
+							: ''}
 					</span>
 				</div>
 			</div>
@@ -47,7 +55,9 @@ export default function Footer() {
 				</button>
 				<button
 					className='m-icon mx-4 ring-2 ring-white rounded-full text-white h-8 w-8 active:scale-100 hover:scale-105 focus:scale-105'
-					onClick={() => dispatch(togglePlayback())}
+					onClick={() => {
+						window.player.togglePlay();
+					}}
 				>
 					{isPlaying ? 'pause' : 'play_arrow'}
 				</button>
@@ -61,16 +71,16 @@ export default function Footer() {
 				<button
 					className={
 						'm-icon-round mr-4 ' +
-						(repeatState !== 'off' ? 'text-spotify-green' : 'hover:text-white')
+						(repeat !== 'off' ? 'text-spotify-green' : 'hover:text-white')
 					}
 					onClick={() => dispatch(cycleRepeatState())}
 				>
-					{repeatState !== 'track' ? 'repeat' : 'repeat_one'}
+					{repeat !== 'track' ? 'repeat' : 'repeat_one'}
 				</button>
 				<button
 					className={
 						'm-icon-round mr-4 ' +
-						(shuffleState === 'on' ? 'text-spotify-green' : 'hover:text-white')
+						(shuffle === 'on' ? 'text-spotify-green' : 'hover:text-white')
 					}
 					onClick={() => dispatch(toggleShuffleState())}
 				>
@@ -79,7 +89,17 @@ export default function Footer() {
 				<button className='m-icon-round hover:text-white mr-4'>
 					volume_up
 				</button>
-				<button className='m-icon-round hover:text-white mr-6'>devices</button>
+				<div
+					className='mr-6'
+					// onFocus={() => setDeviceListVisibility(true)}
+					// onBlur={() => setDeviceListVisibility(false)}
+				>
+					<button className='m-icon-round hover:text-white mr-6'>
+						devices
+					</button>
+					{/* {showDeviceList && <DeviceList />} */}
+					<DeviceList />
+				</div>
 			</div>
 
 			<SongProgressBar />

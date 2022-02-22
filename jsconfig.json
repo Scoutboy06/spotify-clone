@@ -5,6 +5,7 @@
 			"@/config/*": ["./pages/api/config/*"],
 			"@/controllers/*": ["./pages/api/controllers/*"],
 			"@/functions/*": ["./pages/api/functions/*"],
+			"@/middlewares/*": ["./pages/api/middlewares/*"],
 			"@/utils/*": ["./pages/api/utils/*"],
 
 			"@/api/*": ["./pages/api/*"],

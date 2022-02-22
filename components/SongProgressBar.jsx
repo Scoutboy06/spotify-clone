@@ -1,8 +1,17 @@
+import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { seek, setIsSeeking } from '@/redux/slices/playbackSlice';
+import {
+	seek,
+	setIsSeeking,
+	setProgress,
+	setDuration,
+	updateProgress,
+} from '@/features/playback/playbackSlice';
 
 export default function SongProgressBar() {
-	const { progress, duration } = useSelector(state => state.playback);
+	const { progress, duration, isSeeking, isPlaying } = useSelector(
+		state => state.playback
+	);
 	const dispatch = useDispatch();
 
 	const handleMouseDown = e => {

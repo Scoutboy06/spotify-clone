@@ -10,12 +10,6 @@ export default function Home() {
 	const router = useRouter();
 	const { isLoggedIn, isLoading } = useUser();
 
-	// if (error) return <p>Failed to load</p>;
-	// if (isLoading) return <p>Loading...</p>;
-	// if (!isLoading && !isLoggedIn) {
-	// 	router.push('/login');
-	// 	return <p className='text-white'>Redirecting...</p>;
-	// }
 	useEffect(() => {
 		if (!isLoading && !isLoggedIn) router.push('/login');
 	}, [isLoggedIn, isLoading, router]);

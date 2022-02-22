@@ -4,7 +4,7 @@ import useSWR from 'swr';
 const fetcher = (...args) => fetch(...args).then(res => res.json());
 
 export default function PlaylistsSidebar() {
-	const { data } = useSWR('/api/user/playlists', fetcher);
+	const { data } = useSWR('/api/me/playlists', fetcher);
 
 	return (
 		<nav

@@ -28,7 +28,8 @@ export default function handler(req, res) {
 	})
 		.then(res => res.json())
 		.then(json => {
-			const token = generateToken(json.access_token);
+			// const generatedToken = generateToken(json.access_token);
+			const token = json.access_token;
 
 			cookies.set('access_token', token);
 			res.redirect('/');

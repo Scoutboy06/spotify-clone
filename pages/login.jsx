@@ -6,7 +6,7 @@ export default function Login() {
 				This site required you to sign in to Spotify to work
 			</p>
 			{/*eslint-disable-next-line @next/next/no-html-link-for-pages*/}
-			<a href='/api/login'>
+			<a href='/api/auth/login'>
 				<button className='bg-spotify-green p-2 rounded transition-colors hover:bg-[#16a34a]'>
 					Log in to Spotify
 				</button>

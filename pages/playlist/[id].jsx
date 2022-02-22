@@ -45,7 +45,6 @@ export default function PlaylistView() {
 			<NavSidebar />
 			<Footer />
 
-			{/* <div className='h-full overflow-y-scroll' gridArea='main-view'> */}
 			<main
 				className='overflow-y-auto w-full relative pt-12'
 				style={{ gridArea: 'main-view' }}
